@@ -57,9 +57,15 @@ The terminal and command-line are powerful tools for swiftly and efficiently nav
 
 *In this step I have included a **'TDLR'** section showing just the commands, as well as an **'explanation'** section to explain the actions taken*
   
-*You will notice that the command line of your terminal likely has a **path** to the left of the cursor [it probably looks something like **C:\\{your-computer's-name}\\Documents>** or **{your-computer's-name}@:~/$** or something along those lines]. The path signifies your current working directory (i.e. the location within your computer's file structure where your terminal is currently active/working)*
+>*You will notice that the command line of your terminal likely has a **path** to the left of the cursor [it probably looks something like **C:\\{your-computer's-name}\\Documents>** or **{your-computer's-name}@:~/$** or something along those lines]. The path signifies your current working directory (i.e. the location within your computer's file structure where your terminal is currently active/working)*
 
-##### TLDR STEP 2 (Commands)
+>In 'Bash', you can use `ls` to **visualize** the all of the files and folders that are present in your current working directory (cwd).
+> - If you want to set up your project in a *different* directory, you can either **change directory** using `cd` *or* you can make a **new directory** with `mkdir`
+>   - Example: 
+>       - If your cwd is `~/Documents` and you want to set up your project in an existing folder at `~/Documents/learning`, you would run: `cd learning` (or cd `./learning`) to *change directory*
+>       - If the folder 'learning' did NOT exist yet, you could run `mkdir learning`, which would create the empty 'learning' folder, THEN use `cd learning` to step into the 'learning' directory.
+
+To put it more briefly:
 
 **Visualize** your current working directory (to get your bearings)
 
@@ -69,14 +75,6 @@ The terminal and command-line are powerful tools for swiftly and efficiently nav
 
     `mkdir learning` # makes a directory called 'learning'
     `cd learning` # enters into the 'learning' directory
-
-##### VERBOSE STEP 2 (Explaining the actions)
-
-In 'Bash', you can use `ls` to **visualize** the all of the files and folders that are present in your current working directory (cwd).
-- If you want to set up your project in a *different* directory, you can either **change directory** using `cd` *or* you can make a **new directory** with `mkdir`
-  - Example: 
-    - If your cwd is `~/Documents` and you want to set up your project in an existing folder at `~/Documents/learning`, you would run: `cd learning` (or cd `./learning`) to *change directory*
-    - If the folder 'learning' did NOT exist yet, you could run `mkdir learning`, which would create the empty 'learning' folder, THEN use `cd learning` to step into the 'learning' directory.
 
 ### Installing Git
 
