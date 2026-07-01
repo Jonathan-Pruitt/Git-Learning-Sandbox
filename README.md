@@ -17,7 +17,7 @@ This repo is built for **Git beginners** looking for a **zero-stakes playground*
 This repo hopes to help you:
     
 - Develop a **basic** understanding of using Bash to create and navigate files/folders on your local machine (a.k.a. your personal laptop/desktop)
-    - Basic commands include: ls, cd, mkdir, rm, rmdir, mv, cp, nano, touch
+    - Basic commands including: ls, cd, mkdir
 - Understand and use the basic **git** commands
   - Sending/Receiving Repository Data
     - `git clone`, `git fetch`, `git pull`, `git commit`, `git push`, `git merge`
@@ -142,6 +142,52 @@ After cloning the repo, you can see that it's present on your computer now by lo
 
 You have now established an initial **connection** to this repository, and copied all of its contents (as of the moment of cloning) onto your local device. 
 
-## Fetching and Pulling
+## Interacting with the Repo
 
-## Pushing to the Repo
+>Cloning the repo created a copy of the project on your local device that was accurate and up-to-date as of the moment you cloned it, **BUT** what if someone else makes an update to the repository? What if someone adds, removes, or edits a file or directory? How could *you* modify the repository if you so choose? Let's take a look!
+
+### Fetching 
+
+The **fetch** command is a lot like 'syncing', but is limited to updating your system's *knowledge* of the remote, rather than actually making any changes to your local branch.
+
+>Sidenote: You might have noticed that I just referenced a 'branch' for the first time. We will likely be discussing branches in depth at some point, but for now I'll provide a very brief description.
+>A git **branch** is an individual access point of a repository. One repo can have multiple branches that may serve different functions, but ALL repos *MUST* have at least one branch (often called the 'main' branch). For the sake of this guide, we will be sticking with the 'main' branch for now.
+
+**IMPORTANT** Any time that you are planning to **push to** or **pull from** a remote repository, you should **FIRST** run a `git fetch` to make sure that your system is aware of the discrepancies between your local and the remote repository. 
+
+If you want to check to see if your **local** repo is still up to date with the **remote**, you can run the `git fetch` command to compare the current state of the remote to the current state of your local.
+
+    `git fetch`
+
+After running `git fetch`, you can run `git status` to *see* whether your local repo is *a) in sync with, b) ahead of, c) behind, or d) ahead in some aspects and behind in others* with respect to the remote.
+
+### Pulling
+
+The **pull** command is how you bring over all of the changes that have happened to the remote branch between now and the last time that you fetched and pulled, and copy those changes to your local branch. After running a **pull** command, your local branch will have all of the same files/folders as the remote.
+
+When you're ready to bring the changes over from the remote branch and update your local branch to reflect them, you can run:
+
+    `git fetch` # This is not strictly necessary, but it's almost always a good idea to run 'fetch' before doing a pull or push, so that your system knows the current difference between your local branch and the remote branch.
+    `git pull`
+
+### Pushing 
+
+The **push** command is how you *send* the changes from your local branch to the remote branch. In order to **push** the current state of your local branch onto the remote, you first need to **commit** your changes locally. 
+
+>Think of making a **commit** the way you would think of saving a file. After you've made changes to your local branch and you've saved all of the files, you can make a **commit** to 'commit' those changes to your local repository. After making one or more commits, you can push all of those committed changes to the remote branch.
+
+In short, the fundamental steps of the **push** process are: 
+    
+    1) Make changes to the local branch *(e.g. edit a file, delete a file, add a file, rename/move a folder)*
+    2) **Commit** those changes
+    3) **Push** those commits to the remote branch.
+
+    # First I always recommend running a `git fetch` to see what (if any) differences there are between the local and remote branches
+    `git fetch` # for the sake of example, let's say no differences *(other than the changes made to the local branch)* were found
+    `git add .` # the **add .** command is adding all changed files to the 'commit'. In the command `git add .`, the '.' is interpreted as 'all'
+    `git commit -m "My first commit"` # commit those added changes to the local branch
+    `git push` # finally, push the current state of the local branch up to the remote branch
+
+### Other Useful Commands
+
+status, diff, branch, 
